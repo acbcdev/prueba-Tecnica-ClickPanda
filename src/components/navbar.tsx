@@ -1,5 +1,6 @@
 import { ThemeSwitch } from "@/components/theme-switch";
 import Link from "next/link";
+import Image from "next/image";
 import { Github } from "@/svg/github";
 import {
 	Navbar as NavBarHero,
@@ -11,9 +12,10 @@ export const Navbar = () => {
 	return (
 		<NavBarHero>
 			<NavbarBrand>
-				<h1 className="text-2xl font-bold">
-					<Link href={"/"}>Countries Dashboard</Link>
-				</h1>
+				<Link href={"/"} className="flex items-center gap-2">
+					<Image src="/favicon.svg" alt="Logo" width={40} height={40} />
+					<h1 className="text-2xl font-bold">Countries Dashboard</h1>
+				</Link>
 			</NavbarBrand>
 			<NavbarContent justify="end">
 				<NavbarItem>

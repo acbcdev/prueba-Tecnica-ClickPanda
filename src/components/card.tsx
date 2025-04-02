@@ -10,7 +10,7 @@ type CardProps = {
 
 export const Card = ({ title, population, flag, region }: CardProps) => {
 	return (
-		<article className="px-5 py-8 border bg-content1 border-divider rounded-xl">
+		<article className="px-5 py-8 duration-200 border border-transparent bg-content1 hover:border-divider rounded-xl">
 			<div className="flex items-center justify-between">
 				<img
 					src={endpoints.flags({

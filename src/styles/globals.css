@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #1d77c0;
+    --color-primary-2: #ff7f22;
+    --color-secondary: #4a77ba;
+    --color-secondary-2: #fea259;
+    --border: "#c3c3c3";
+  }
+
+  .dark {
+    --border: "#373b45"
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

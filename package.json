@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
+    "lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix",
+    "playwright": "playwright test",
+    "playwright:watch": " playwright test --repeat-each 8"
   },
   "dependencies": {
     "@heroui/button": "2.2.16",

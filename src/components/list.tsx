@@ -21,6 +21,7 @@ export function List({
 						population={country.population.toLocaleString()}
 						region={country.region}
 						title={country.name.common}
+						capital={country.capital?.join(", ") ?? ""}
 					/>
 				))
 			)}

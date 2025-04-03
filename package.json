@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "15.0.4",
+    "@playwright/test": "^1.51.1",
     "@react-types/shared": "3.25.0",
     "@types/node": "20.5.7",
     "@types/react": "19.1.0",

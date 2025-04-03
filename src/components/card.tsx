@@ -1,4 +1,4 @@
-import type { Country, Currencies } from "@/types";
+import type { Country } from "@/types";
 
 import { CircleDollarSign, Users } from "lucide-react";
 
@@ -6,12 +6,6 @@ import { endpoints } from "@/config/endpoints";
 import { Modal } from "@/components/modal";
 
 type CardProps = {
-	title: string;
-	population: string;
-	flag: string;
-	region: string;
-	currency: Currencies | undefined;
-	capital: string;
 	country: Country;
 };
 

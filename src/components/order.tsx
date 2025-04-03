@@ -20,7 +20,7 @@ type OrderProps = {
 export function Order({ sort, setSort }: OrderProps) {
 	return (
 		<Select
-			className="w-20 md:w-40"
+			className="w-24 md:w-32"
 			defaultSelectedKeys={[sort]}
 			label="sort by"
 			labelPlacement="outside"
@@ -30,7 +30,9 @@ export function Order({ sort, setSort }: OrderProps) {
 			}}
 		>
 			{SORT.map((sort) => (
-				<SelectItem key={sort}>{sort}</SelectItem>
+				<SelectItem className="w-fit" key={sort}>
+					{sort}
+				</SelectItem>
 			))}
 		</Select>
 	);

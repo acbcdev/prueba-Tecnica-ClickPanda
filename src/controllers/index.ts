@@ -1,17 +1,16 @@
 import type { Country } from "@/types";
 
 import axios from "axios";
+import { cache } from "react";
 
 import { endpoints } from "@/config/endpoints";
-import { cache } from "react";
 
 export const getAllCountries = cache(async () => {
 	//
-	// const response = await axios.get<Country[]>(endpoints.countries.all);
-	// return response.data;
-	const response = await axios.get<Country[]>(
-		"http://localhost:3000/restcountriescomall.json",
-	);
+	// const response = await axios.get<Country[]>(
+	//   "http://localhost:3000/restcountriescomall.json",
+	// );
+	const response = await axios.get<Country[]>(endpoints.countries.all);
 
 	return response.data;
 });
@@ -31,7 +30,7 @@ export const getCountryByCode = cache(async (code: string) => {
 		);
 
 		return response.data[0];
-	} catch (error) {
+	} catch {
 		return null;
 	}
 });

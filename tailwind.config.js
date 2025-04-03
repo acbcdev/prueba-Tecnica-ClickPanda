@@ -28,7 +28,7 @@ const config = {
             // background: "#e8f4fc",
             divider: "#c3c3c3",
             foreground: "#001042",
-            content1: "#ffffff",
+            content1: "#e8f4fc",
             secondary: {
               DEFAULT: "#ff7f22",
               secondary: "#ff7f22",

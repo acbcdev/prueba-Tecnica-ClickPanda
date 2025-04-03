@@ -3,8 +3,9 @@ import type { Country } from "@/types";
 import axios from "axios";
 
 import { endpoints } from "@/config/endpoints";
+import { cache } from "react";
 
-export async function getAllCountries() {
+export const getAllCountries = cache(async () => {
 	//
 	// const response = await axios.get<Country[]>(endpoints.countries.all);
 	// return response.data;
@@ -13,7 +14,7 @@ export async function getAllCountries() {
 	);
 
 	return response.data;
-}
+});
 
 export async function getCountryByName(name: string) {
 	const response = await axios.get<Country[]>(
@@ -23,7 +24,7 @@ export async function getCountryByName(name: string) {
 	return response.data;
 }
 
-export async function getCountryByCode(code: string) {
+export const getCountryByCode = cache(async (code: string) => {
 	try {
 		const response = await axios.get<Country[]>(
 			endpoints.countries.code(code.trim()),
@@ -33,7 +34,7 @@ export async function getCountryByCode(code: string) {
 	} catch (error) {
 		return null;
 	}
-}
+});
 
 export async function getCountryByRegion(region: string) {
 	const response = await axios.get<Country[]>(

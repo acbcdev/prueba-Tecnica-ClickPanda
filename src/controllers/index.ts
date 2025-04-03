@@ -7,10 +7,10 @@ import { endpoints } from "@/config/endpoints";
 
 export const getAllCountries = cache(async () => {
 	//
-	// const response = await axios.get<Country[]>(
-	//   "http://localhost:3000/restcountriescomall.json",
-	// );
-	const response = await axios.get<Country[]>(endpoints.countries.all);
+	const response = await axios.get<Country[]>(
+		"http://localhost:3000/restcountriescomall.json",
+	);
+	// const response = await axios.get<Country[]>(endpoints.countries.all);
 
 	return response.data;
 });

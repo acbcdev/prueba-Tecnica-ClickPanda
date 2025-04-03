@@ -3,7 +3,7 @@ import type { Country, Currencies } from "@/types";
 import { CircleDollarSign, Users } from "lucide-react";
 
 import { endpoints } from "@/config/endpoints";
-import { Modal } from "./modal";
+import { Modal } from "@/components/modal";
 
 type CardProps = {
 	title: string;
@@ -15,49 +15,49 @@ type CardProps = {
 	country: Country;
 };
 
-export const Card = ({
-	title,
-	population,
-	flag,
-	region,
-	currency = {},
-	capital,
-	country,
-}: CardProps) => {
+export const Card = ({ country }: CardProps) => {
+	const currencies = Object.entries(country?.currencies || {});
 	return (
 		<article className="px-5 py-8 duration-200 border-4 border-transparent bg-content1 hover:border-divider rounded-xl">
-			<a href={`/country/${flag}`}>
+			<a href={`/country/${country.cca2}`}>
 				<div className="flex items-center justify-between">
 					<img
-						alt={title}
+						alt={country.flags.alt}
 						className="w-16 h-16"
 						decoding="async"
 						loading="lazy"
 						src={endpoints.flags({
-							countryCode: flag,
+							countryCode: country.cca2,
 							size: "64",
 						})}
 					/>
 
-					<h3 className="mt-2 text-xl font-bold dark:text-zinc-200">{title}</h3>
+					<h3 className="mt-2 text-xl font-bold dark:text-zinc-200">
+						{country.name.common}
+					</h3>
 				</div>
 
-				<div className="grid justify-between grid-cols-2 mt-4 gap-y-2">
+				<div className="grid justify-between grid-cols-1 mt-4 md:grid-cols-2 gap-y-2 gap-x-4">
 					<p className="inline-flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-200">
-						<Users className="text-secondary-500" /> {population}
+						<Users className="text-secondary-500" />
+						{country.population.toLocaleString()}
 					</p>
-					{Object.keys(currency).length > 0 && (
+					{currencies.length > 0 && (
 						<p className="inline-flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-200">
 							<CircleDollarSign className="text-success" />
-							{Object.keys(currency)[0]}
+							{currencies.at(-1)?.[1].name}
 						</p>
 					)}
-					<p className="text-sm text-zinc-500 dark:text-zinc-200">{region}</p>
+					<p className="text-sm text-zinc-500 dark:text-zinc-200">
+						{country.region}
+					</p>
 
-					<p className="text-sm text-zinc-500 dark:text-zinc-200">{capital}</p>
+					<p className="text-sm text-zinc-500 dark:text-zinc-200">
+						{country.capital}
+					</p>
 				</div>
 			</a>
-			<div className="mt-5">
+			<div className="mt-4">
 				<Modal country={country} />
 			</div>
 		</article>

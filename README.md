@@ -1,53 +1,79 @@
-# Next.js & HeroUI Template
+# Prueba Técnica: Desarrollo Frontend - React, Next.js, TypeScript y Heroui
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+![alt text](image.png)
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
 
-## Technologies Used
+- [Descripción](#descripción)
+- [Tecnologías Utilizadas](#tecnologías-utilizadas)
+- [Funcionalidades Implementadas](#funcionalidades-implementadas)
+- [APIs Utilizadas](#apis-utilizadas)
+- [Diseño](#diseño)
+- [Instalación y Ejecución](#instalación-y-ejecución)
+- [Estructura del Proyecto](#estructura-del-proyecto)
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI v2](https://heroui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+# Descripción
 
-## How to Use
+La aplicación es un dashboard dinámico y atractivo que presenta información detallada de países obtenidos de una API pública. Permite a los usuarios explorar, buscar, filtrar y ordenar países, además de ofrecer una experiencia visual agradable con soporte para modo oscuro.
+## Tecnologías Utilizadas
 
-### Use the template with create-next-app
+-   **React JS** (19)
+-   **Next.js** (15)
+-   **TypeScript** (.tsx)
+-   **Heroui** (2) - Librería de componentes UI.
+-   **Axios** - Para realizar las peticiones HTTP a las APIs.
 
-To create a new project based on this template using `create-next-app`, run the following command:
+## Funcionalidades Implementadas
 
-```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
-```
+-   **Visualización de Países:** Muestra una lista/cuadrícula de países con información clave.
+-   **Detalles del País:** Al seleccionar un país, se muestra información adicional como población, capital, moneda e idiomas oficiales.
+-   **Búsqueda:** Campo de búsqueda para encontrar países por nombre. [Source 9, 17]
+-   **Filtro por Región:** Permite filtrar los países según su región (Ej: Europa, Asia, Américas, etc.).
+-   **Paginación:** Navegación entre páginas para explorar la lista completa de países.
+-   **Ordenación:** Botones para ordenar los países por nombre, población o moneda.
+-   **Modo Oscuro (Dark Mode):** Soporte nativo de Next.js para cambiar entre tema claro y oscuro de forma dinámica.
+-   **Carga Diferida (Lazy Loading):** Las imágenes de las banderas se cargan eficientemente mediante lazy loading.
+-   **Diseño Responsivo:** La interfaz se adapta a diferentes tamaños de pantalla (móvil, tablet, escritorio).
 
-### Install dependencies
+## APIs Utilizadas
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+-   **RestCountries API:** Para obtener la información de los países.
+    -   Todos los países: `https://restcountries.com/v3.1/all`
+-   **FlagsAPI:** Para mostrar las banderas de los países.
+    -   Formato URL: `https://flagsapi.com/{country_code}/{style}/{size}.png` (Ej: `https://flagsapi.com/ES/flat/64.png`)
 
-```bash
-npm install
-```
+## Diseño
 
-### Run the development server
+-   La interfaz se basa en un prototipo diseñado en Figma, utilizando componentes de la librería **Heroui**.
+-   El componente de la tarjeta (card) de país es un diseño personalizado siguiendo las especificaciones de la prueba.
+-   Se utilizaron las paletas de colores especificadas en los requerimientos.
 
-```bash
-npm run dev
-```
+## Instalación y Ejecución
 
-### Setup pnpm (optional)
+Sigue estos pasos para ejecutar el proyecto localmente:
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+1.  **Clona el repositorio:**
+    ```bash
+    git clone https://github.com/acbcdev/prueba-Tecnica-ClickPanda
+    cd prueba-Tecnica-ClickPanda
+    ```
 
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
+2.  **Instala las dependencias:**
+    ```bash
+    pnpm install
+    ```
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+3.  **Ejecuta el servidor de desarrollo:**
+    ```bash
+    pnpm dev
+    ```
 
-## License
+4.  Abre tu navegador y visita `http://localhost:3000` (o el puerto que indique Next.js).
 
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
+## Estructura del Proyecto
+
+El código está organizado siguiendo buenas prácticas, separando la lógica en:
+
+-   **Components:** Componentes reutilizables de la interfaz de usuario.
+-   **Controllers/:** Funciones consumo de API y utilidades generales.
+-   **Pages/Views:** Estructura principal de las páginas de Next.js, incluyendo el dashboard principal.
+

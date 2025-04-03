@@ -17,6 +17,7 @@
     "@heroui/pagination": "^2.2.14",
     "@heroui/popover": "^2.3.16",
     "@heroui/select": "^2.4.16",
+    "@heroui/switch": "^2.2.14",
     "@heroui/system": "2.4.12",
     "@heroui/theme": "2.4.12",
     "@heroui/tooltip": "^2.2.13",

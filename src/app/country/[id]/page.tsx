@@ -1,16 +1,17 @@
-import { endpoints } from "@/config/endpoints";
-import { getAllCountries, getCountryByCode } from "@/controllers";
 import { Users } from "lucide-react";
 import { Link } from "@heroui/link";
+
+import { endpoints } from "@/config/endpoints";
+import { getAllCountries, getCountryByCode } from "@/controllers";
 import UtcClock from "@/components/clock";
 
-export const dynamicParams = false;
-export const revalidate = 60 * 60 * 24;
+// export const dynamicParams = false;
 
-export async function generateStaticParams() {
-	const countries = await getAllCountries();
-	return countries.map((country) => ({ id: country.cca2 }));
-}
+// export async function generateStaticParams() {
+//   const countries = await getAllCountries();
+
+//   return countries.map((country) => ({ id: country.cca2 }));
+// }
 
 export default async function page({
 	params,
@@ -41,11 +42,14 @@ export default async function page({
 
 					<h1 className="text-3xl font-bold">{code.name.common}</h1>
 				</div>
-				<h3>
+				<section className="grid grid-cols-3 gap-3">
 					{code.timezones.map((i) => (
-						<UtcClock key={i} offsetStr={i} />
+						<div key={i}>
+							<p>{i}</p>
+							<UtcClock offsetStr={i} />
+						</div>
 					))}
-				</h3>
+				</section>
 			</div>
 
 			<div className="grid grid-cols-3 gap-4 mx-auto mt-5 w-fit place-content-center">
@@ -157,11 +161,11 @@ export default async function page({
 							Coat of Arms
 						</h2>
 						<img
-							className="size-32"
-							src={code.coatOfArms.svg}
 							alt="Coat of Arms"
-							loading="lazy"
+							className="size-32"
 							decoding="async"
+							loading="lazy"
+							src={code.coatOfArms.svg}
 						/>
 					</article>
 				)}

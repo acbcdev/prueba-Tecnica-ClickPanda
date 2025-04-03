@@ -1,9 +1,17 @@
 import { endpoints } from "@/config/endpoints";
-import { getCountryByCode } from "@/controllers";
+import { getAllCountries, getCountryByCode } from "@/controllers";
 import { Users } from "lucide-react";
 import { Link } from "@heroui/link";
 import UtcClock from "@/components/clock";
-import { redirect } from "next/navigation";
+
+export const dynamicParams = false;
+export const revalidate = 60 * 60 * 24;
+
+export async function generateStaticParams() {
+	const countries = await getAllCountries();
+	return countries.map((country) => ({ id: country.cca2 }));
+}
+
 export default async function page({
 	params,
 }: {
@@ -13,7 +21,7 @@ export default async function page({
 	const code = await getCountryByCode(id);
 
 	if (!code) {
-		return redirect("/not-found");
+		return Error();
 	}
 
 	return (

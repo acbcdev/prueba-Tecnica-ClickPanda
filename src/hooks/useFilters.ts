@@ -36,6 +36,7 @@ export function useFilters(countries: Country[]) {
 		defaultValue: "",
 	});
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		let result = [...countries];
 
@@ -73,6 +74,7 @@ export function useFilters(countries: Country[]) {
 				),
 			);
 		}
+		setCurrentPage(1);
 
 		// Apply sorting
 		result.sort((a, b) => {

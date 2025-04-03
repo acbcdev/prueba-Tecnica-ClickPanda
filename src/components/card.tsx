@@ -4,7 +4,7 @@ import { CircleDollarSign, Users } from "lucide-react";
 
 import { endpoints } from "@/config/endpoints";
 import { Modal } from "@/components/modal";
-
+import { Image } from "@/components/Image";
 type CardProps = {
 	country: Country;
 };
@@ -15,17 +15,17 @@ export const Card = ({ country }: CardProps) => {
 		<article className="px-5 py-8 duration-200 border-4 border-transparent bg-content1 hover:border-divider rounded-xl">
 			<a href={`/country/${country.cca2}`}>
 				<div className="flex items-center justify-between">
-					<img
+					<Image
+						fallback={country.flags.svg}
 						alt={country.flags.alt}
-						className="w-16 h-16"
 						decoding="async"
+						className="w-16 h-16"
 						loading="lazy"
 						src={endpoints.flags({
 							countryCode: country.cca2,
 							size: "64",
 						})}
 					/>
-
 					<h3 className="mt-2 text-xl font-bold dark:text-zinc-200">
 						{country.name.common}
 					</h3>

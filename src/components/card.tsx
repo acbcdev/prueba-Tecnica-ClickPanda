@@ -26,7 +26,7 @@ export const Card = ({ country }: CardProps) => {
 							size: "64",
 						})}
 					/>
-					<h3 className="mt-2 text-xl font-bold dark:text-zinc-200">
+					<h3 className="mt-2 text-xl font-bold text-end dark:text-zinc-200">
 						{country.name.common}
 					</h3>
 				</div>

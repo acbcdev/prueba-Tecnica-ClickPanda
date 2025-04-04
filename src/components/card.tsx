@@ -12,7 +12,7 @@ type CardProps = {
 export const Card = ({ country }: CardProps) => {
 	const currencies = Object.entries(country?.currencies || {});
 	return (
-		<article className="px-5 py-8 duration-200 border-4 border-transparent bg-content1 hover:border-divider rounded-xl">
+		<article className="px-5 py-8 duration-200 border-4 border-transparent card bg-content1 hover:border-divider rounded-xl">
 			<a href={`/country/${country.cca2}`}>
 				<div className="flex items-center justify-between">
 					<Image

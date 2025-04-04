@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@heroui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@heroui/popover";
 import { Select, SelectItem } from "@heroui/select";
@@ -29,7 +30,7 @@ export function Filters({
 	langs,
 	currencies,
 }: PropsFilters) {
-	const isMobile = useMediaQuery("only screen and (max-width : 768px)");
+	const isMobile = useMediaQuery("(max-width : 768px)");
 
 	return (
 		<Popover>

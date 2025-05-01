@@ -15,5 +15,9 @@ export default function UtcClock({ offsetStr }: { offsetStr: string }) {
     return () => clearInterval(interval);
   }, [offset]);
 
-  return <div className="font-mono text-2xl">{time}</div>;
+  return (
+    <div className="font-mono text-2xl" suppressHydrationWarning>
+      {time}
+    </div>
+  );
 }

@@ -1,9 +1,9 @@
-import { Users } from "lucide-react";
 import { Link } from "@heroui/link";
+import { Users } from "lucide-react";
 
+import UtcClock from "@/components/clock";
 import { endpoints } from "@/config/endpoints";
 import { getAllCountries, getCountryByCode } from "@/controllers";
-import UtcClock from "@/components/clock";
 
 export const dynamic = "force-static";
 
@@ -29,6 +29,7 @@ export default async function page({
     <section className="grid w-full mx-auto placeholder-center">
       <div className="flex items-center justify-around gap-2">
         <div className="flex items-center gap-2">
+          {/** biome-ignore lint/performance/noImgElement: <no use Image> */}
           <img
             alt={code.flags.alt}
             className="w-16 h-16"
@@ -150,7 +151,7 @@ export default async function page({
           <h2 className="text-xl font-bold text-secondary-500">Gini</h2>
           <p>
             {Object.entries(code.gini ?? {}).map(
-              ([key, value]) => `${key} : ${value}`
+              ([key, value]) => `${key} : ${value}`,
             )}
           </p>
         </article>

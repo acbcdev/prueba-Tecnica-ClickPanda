@@ -11,15 +11,16 @@ type CardProps = {
 
 export const Card = ({ country }: CardProps) => {
   const currencies = Object.entries(country?.currencies || {});
+
   return (
     <article className="flex flex-col justify-between px-5 pt-6 pb-4 duration-200 border-4 border-transparent card bg-content1 hover:border-divider rounded-xl">
       <a href={`/country/${country.cca2}`}>
         <div className="flex items-center justify-between">
           <Image
-            fallback={country.flags.svg}
             alt={country.flags.alt}
-            decoding="async"
             className="w-16 h-16"
+            decoding="async"
+            fallback={country.flags.svg}
             loading="lazy"
             src={endpoints.flags({
               countryCode: country.cca2,

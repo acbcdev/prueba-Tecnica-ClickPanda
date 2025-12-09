@@ -1,9 +1,7 @@
-import type { Country } from "@/types";
-
 import axios from "axios";
 import { cache } from "react";
-
 import { endpoints } from "@/config/endpoints";
+import type { Country } from "@/types";
 
 export const getAllCountries = cache(async () => {
 	//

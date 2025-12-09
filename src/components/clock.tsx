@@ -16,7 +16,7 @@ export default function UtcClock({ offsetStr }: { offsetStr: string }) {
   }, [offset]);
 
   return (
-    <div className="font-mono text-2xl" suppressHydrationWarning>
+    <div suppressHydrationWarning className="font-mono text-2xl">
       {time}
     </div>
   );

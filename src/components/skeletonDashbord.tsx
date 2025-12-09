@@ -1,5 +1,6 @@
-import { PAGE_SIZE } from "@/config/filters";
 import { Skeleton as S } from "@heroui/skeleton";
+
+import { PAGE_SIZE } from "@/config/filters";
 export function SkeletonDashboard() {
   return (
     <section className="w-full space-y-3">
@@ -13,7 +14,7 @@ export function SkeletonDashboard() {
       <main className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {Array.from({ length: PAGE_SIZE }).map((_, n) => (
           // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-          <S className="w-full h-48 rounded-lg " key={n} />
+          <S key={n} className="w-full h-48 rounded-lg " />
         ))}
       </main>
       <footer className="flex items-center justify-center gap-2">

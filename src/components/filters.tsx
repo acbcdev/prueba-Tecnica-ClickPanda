@@ -3,9 +3,11 @@
 import { Button } from "@heroui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@heroui/popover";
 import { Select, SelectItem } from "@heroui/select";
-import { ListFilter } from "lucide-react";
-import { REGIONS, SUB_REGIONS } from "@/config/filters";
 import { useMediaQuery } from "@uidotdev/usehooks";
+import { ListFilter } from "lucide-react";
+import { useEffect, useState } from "react";
+
+import { REGIONS, SUB_REGIONS } from "@/config/filters";
 
 type PropsFilters = {
   region: string;
@@ -30,12 +32,17 @@ export function Filters({
   langs,
   currencies,
 }: PropsFilters) {
+  const [isMounted, setIsMounted] = useState(false);
   const isMobile = useMediaQuery("(max-width : 768px)");
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <Popover>
       <PopoverTrigger>
-        <Button isIconOnly={isMobile} color="primary">
+        <Button color="primary" isIconOnly={isMounted ? isMobile : false}>
           <span className="hidden md:block">Filters</span> <ListFilter />
         </Button>
       </PopoverTrigger>
